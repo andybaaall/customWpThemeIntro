@@ -18,3 +18,5 @@ function addCustomThemeFiles(){
 
 add_action('wp_enqueue_scripts', 'addCustomThemeFiles');	// takes two values - a queue, and an enqueue function
 // wp_enqueue_scripts() is part of wp_head()
+
+add_theme_support('post-thumbnails');
