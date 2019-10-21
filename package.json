@@ -1,0 +1,31 @@
+{
+  "name": "customwpthemeintro",
+  "version": "1.0.0",
+  "description": "A basic project in class to help us learn WP development. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andybaaall/customWpThemeIntro.git"
+  },
+  "keywords": [
+    "npm",
+    "bootstrap",
+    "jquery",
+    "php",
+    "js",
+    "wordpress"
+  ],
+  "author": "andy ball",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andybaaall/customWpThemeIntro/issues"
+  },
+  "homepage": "https://github.com/andybaaall/customWpThemeIntro#readme",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "popper.js": "^1.16.0"
+  }
+}
