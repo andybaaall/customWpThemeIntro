@@ -12,7 +12,7 @@ function addCustomThemeFiles(){
 
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('popperJS', get_template_directory_uri() . '/node_modules/popper.js/dist/umd/popper.js', array(), '1.16.0', true);
-	wp_enqueue_script('bootstrapJS', get_template_directory_uri() . '/node_modules/bootstrap/dist/js/bootstrap.min.js', array('jquery', 'popper'), '4.3.1', true);
+	wp_enqueue_script('bootstrapJS', get_template_directory_uri() . '/node_modules/bootstrap/dist/js/bootstrap.min.js', array('jquery', 'popperJS'), '4.3.1', true);
 	wp_enqueue_script('customJS', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), '0.0.1', true);
 };
 

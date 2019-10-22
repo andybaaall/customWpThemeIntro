@@ -11,41 +11,28 @@
 		<?php wp_head();?>
  	</head>
  	<body>
-        <?php if( has_nav_menu('top_navigation')): ?>
-        <!-- remember, 'top_navigation' is the theme_location under which we registered our menu (1902Custom)! -->
+
         <nav class="navbar navbar-expand-md navbar-light bg-light" role="navigation">
             <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-                <a class="navbar-brand" href="#">Navbar</a>
-                <?php wp_nav_menu(array(
-                    // 'theme_location' => 'top_navigation',
-                    // 'container' => 'nav',
-                    // 'container_class' => 'navbar navbar-expand-lg navbar-light bg-light',
-                    // ... we can keep going through and adding bootstrap styling this way, but that sucks.
-                    // luckily, someone's created this awesome resource: https://github.com/wp-bootstrap !
-
-                    // check it out:
-                    'theme_location'  => 'top_navigation',
-                    'container'       => 'nav',
-                    'container_class' => 'navbar navbar-expand-md navbar-light bg-light',
-                    'container_id'    => 'topNavbar',
-                    'menu_class'      => 'navbar-nav mr-auto',
-                    'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
-                    'walker'          => new WP_Bootstrap_Navwalker(),
-                    ))
-
-                // empty array creates some menu items with default IDs in the database; check 'em out in the Posts table
-                // e.g. 'menu-item-22'. These numbers reflect upload order. We need a predictable ID that we can use in JS
-                // we'll also need a menu id that's predictable. That's where the $args 'menu' and 'menu_class' etc. come in
+                <a class="navbar-brand" href="#">My Cool Website</a>
+                <?php
+                wp_nav_menu( array(
+                    'theme_location'    => 'top_navigation',
+                    'depth'             => 1,
+                    'container'         => 'div',
+                    'container_class'   => 'collapse navbar-collapse',
+                    'container_id'      => 'bs-example-navbar-collapse-1',
+                    'menu_class'        => 'nav navbar-nav',
+                    'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+                    'walker'            => new WP_Bootstrap_Navwalker(),
+                ) );
                 ?>
-                </a>
             </div>
-        </nav>
-        <?php endif; ?>
-
+</nav>
 
         </div>
         <div class="container">
