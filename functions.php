@@ -34,6 +34,7 @@ function addCustomMenu1902(){
 	// ... menu will persist in their database persist in their database, we might want to give it a unique identifier
 
 	register_nav_menu('top_navigation', __('Hello, world! This is the navbar that will go at the top of the page', '1902Custom'));
+	register_nav_menu('sidebar_navigation', __('Hello, world! This is the navbar that will go at the side of the page', '1902Custom'));
 	// having done this, we can put wp_nav_menu into our front-end pages.
 }
 
