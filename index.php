@@ -11,7 +11,21 @@
 		<?php wp_head();?>
  	</head>
  	<body>
+        <?php
+        if( has_nav_menu('top_navigation'){
+        // remember, 'top_navigation' is the theme_location under which we registered our menu (1902Custom)!
+            wp_nav_menu(array(
+                'theme_location' => 'top_navigation',
+                'menu_class' => 'top_menu_class',
+                'menu_id' => 'top_menu_id'
+            ))
+            // empty array creates some menu items with default IDs in the database; check 'em out in the Posts table
+            // e.g. 'menu-item-22'. These numbers reflect upload order. We need a predictable ID that we can use in JS
+            // we'll also need a menu id that's predictable. That's where the $args 'menu' and 'menu_class' etc. come in
+        });?>
 
+
+        </div>
         <div class="container">
             <?php if ( have_posts() ): ?>
     			<?php while( have_posts() ): the_post(); ?>
@@ -24,13 +38,13 @@
 
                                 <?php if( is_home() ): ?>
                                     <?php
-                                        $thumbnailSize = 'Very Small Thumbail';
+                                        $thumbnailSize = 'thumbnail';
                                         $thumbnailClass = '';
                                         $imageLayout = 'col-4, mb-4';
                                     ?>
                                 <?php else: ?>
                                     <?php
-                                        $thumbnailSize = 'Very Small Thumbail';
+                                        $thumbnailSize = 'full';
                                         $thumbnailClass = 'img-fluid';
                                         $imageLayout = 'col-12, mb-4';
                                     ?>

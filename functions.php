@@ -22,3 +22,19 @@ add_action('wp_enqueue_scripts', 'addCustomThemeFiles');	// takes two values - a
 add_theme_support('post-thumbnails');
 
 add_image_size('Very Small Thumbail', 100, 100, true);
+
+// menus!
+function addCustomMenu1902(){
+	add_theme_support('menus');	// turning on theme support for menus
+
+	// register_nav_menu('primary', 'Primary Menu'); -- sets up the menu as a navbar (primary) menu
+	// register_nav_menu('primary', __('Primary Menu', 'theme-text-domain'));
+	// Primary Menu is what we'll index this menu by; theme-text-domain comes from style.css ...
+	// ... (Text Domain: 1902Custom). Because people might install a new menu called 'primary', and our ...
+	// ... menu will persist in their database persist in their database, we might want to give it a unique identifier
+
+	register_nav_menu('top_navigation', __('Hello, world! This is the navbar that will go at the top of the page', '1902Custom'));
+	// having done this, we can put wp_nav_menu into our front-end pages.
+}
+
+add_action('after_setup_theme', 'addCustomMenu1902');
