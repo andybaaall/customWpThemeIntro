@@ -24,13 +24,13 @@
 
                                 <?php if( is_home() ): ?>
                                     <?php
-                                        $thumbnailSize = 'thumbnail';
+                                        $thumbnailSize = 'Very Small Thumbail';
                                         $thumbnailClass = '';
                                         $imageLayout = 'col-4, mb-4';
                                     ?>
                                 <?php else: ?>
                                     <?php
-                                        $thumbnailSize = 'full';
+                                        $thumbnailSize = 'Very Small Thumbail';
                                         $thumbnailClass = 'img-fluid';
                                         $imageLayout = 'col-12, mb-4';
                                     ?>
@@ -55,7 +55,7 @@
                                         </div>
                                     <?php else: ?>
                                         <?php the_content(); ?>
-                                        
+
                                         <!-- checking to see if we're on a single page; if we are, we don't need a permalink btn -->
                                         <?php if( !is_single() ): ?>
                                             <a href="<?php the_permalink() ?>" class="btn btn-round btn-primary">permalink</a>

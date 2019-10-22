@@ -20,3 +20,5 @@ add_action('wp_enqueue_scripts', 'addCustomThemeFiles');	// takes two values - a
 // wp_enqueue_scripts() is part of wp_head()
 
 add_theme_support('post-thumbnails');
+
+add_image_size('Very Small Thumbail', 100, 100, true);
