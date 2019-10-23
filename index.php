@@ -35,20 +35,36 @@
         </nav>
 
         <!-- sidebar_navigation -->
-        <nav class="navbar navbar-expand-md navbar-light bg-light col-12 col-lg-3 " role="navigation">
+        <!-- <nav class="navbar navbar-expand-md navbar-light bg-light col-12 col-lg-3 " role="navigation"> -->
             <?php
-            wp_nav_menu( array(
-                'theme_location'    => 'sidebar_navigation',
-                'depth'             => 1,
-                'container'         => 'div',
-                'container_class'   => 'collapse navbar-collapse d-flex',
-                'container_id'      => 'bs-example-navbar-collapse-1',
-                'menu_class'        => 'nav navbar-nav',
-                'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-                'walker'            => new WP_Bootstrap_Navwalker(),
-            ) );
+            // wp_nav_menu( array(
+            //     'theme_location'    => 'sidebar_navigation',
+            //     'depth'             => 1,
+            //     'container'         => 'div',
+            //     'container_class'   => 'collapse navbar-collapse d-flec',
+            //     'container_id'      => 'bs-example-navbar-collapse-1',
+            //     'menu_class'        => 'nav navbar-nav',
+            //     'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+            //     'walker'            => new WP_Bootstrap_Navwalker(),
+            // ) );
             ?>
-        </nav>
+        <!-- </nav> -->
+
+        <!-- bottom_navigation -->
+        <!-- <nav class="navbar navbar-expand-md navbar-light bg-light col-12 col-lg-3 " role="navigation"> -->
+            <?php
+            // wp_nav_menu( array(
+            //     'theme_location'    => 'bottom_navigation',
+            //     'depth'             => 1,
+            //     'container'         => 'div',
+            //     'container_class'   => 'collapse navbar-collapse d-flec',
+            //     'container_id'      => 'bs-example-navbar-collapse-1',
+            //     'menu_class'        => 'nav navbar-nav',
+            //     'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+            //     'walker'            => new WP_Bootstrap_Navwalker(),
+            // ) );
+            ?>
+        <!-- </nav> -->
 
         </div>
         <div class="container">
@@ -96,7 +112,7 @@
                                         <?php the_content(); ?>
 
                                         <!-- checking to see if we're on a single page; if we are, we don't need a permalink btn -->
-                                        <?php if( !is_single() ): ?>
+                                        <?php if( !is_singular() ): ?>
                                             <a href="<?php the_permalink() ?>" class="btn btn-round btn-primary">permalink</a>
                                             <!-- https://developer.wordpress.org/reference/functions/the_permalink/ -->
                                         <?php endif; ?>
