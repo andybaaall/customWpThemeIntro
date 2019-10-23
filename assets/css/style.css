@@ -1,3 +1,13 @@
 * {
 	font-family: sans-serif
 }
+
+.header-image {
+	height: 30vh;
+	width: 100vw;
+	background-position: center;
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

@@ -46,3 +46,20 @@ function register_navwalker(){
 	require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
 }
 add_action( 'after_setup_theme', 'register_navwalker' );
+
+// custom header options
+$customHeaderDefaults = array(
+	'default-image'          => get_template_directory_uri() . '/assets/images/RAVENING-HI-RES.jpg',
+    'width'                  => 1280,
+    'height'                 => 720,		// setting w & h allows cropping that preserves aspect ratio
+);
+add_theme_support('custom-header', $customHeaderDefaults);
+
+	// default image for custom header
+	register_default_headers( array(
+	    'defaultImage' => array(
+	        'url'           => get_template_directory_uri() . '/assets/images/RAVENING-HI-RES.jpg',
+	        'thumbnail_url' => get_template_directory_uri() . '/assets/images/RAVENING-HI-RES.jpg',
+	        'description'   => __( 'Default header image', '1902Custom' )
+	    )
+	) );
