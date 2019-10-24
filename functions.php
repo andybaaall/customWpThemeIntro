@@ -63,3 +63,6 @@ add_theme_support('custom-header', $customHeaderDefaults);
 	        'description'   => __( 'Default header image', '1902Custom' )
 	    )
 	) );
+
+// gutenberg support
+add_theme_support('wp-block-styles');
