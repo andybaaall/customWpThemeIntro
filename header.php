@@ -6,7 +6,7 @@
     <title>Hello, world!</title>
 
     <?php wp_head();?>
-    
+
 </head>
 <body>
 

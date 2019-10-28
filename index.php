@@ -18,7 +18,7 @@ get_header();   // wp function that replaces require(template)
             <!-- archives -->
             <?php echo 'author id # is ' . is_author(); ?>
         <?php endif; ?>
-        
+
         <?php if (is_search()): ?>
             <!-- search results -->
             <h1 class="my-5">search results</h1>
