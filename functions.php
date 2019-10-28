@@ -66,3 +66,6 @@ add_theme_support('custom-header', $customHeaderDefaults);
 
 // gutenberg support
 add_theme_support('wp-block-styles');
+
+// post formats support - these show up in the post editor under status & visibility. 
+add_theme_support('post-formats', array('video', 'audio', 'image', 'gallery'));
