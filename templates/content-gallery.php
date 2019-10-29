@@ -11,12 +11,12 @@
 			for ($i=0; $i < count($allBlocks); $i++) {
 				if ($allBlocks[$i]['blockName'] === 'core/gallery') {
 					$firstGalleryBlock = $allBlocks[$i];
-					break;
-			}
-		}
-		 ?>
+				};
+			};
+		};
+		?>
 
-		
+
 		</div>
 		<a href="<?php the_permalink(); ?>" class="btn btn-round btn-danger">view gallery</a>
 
