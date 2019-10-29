@@ -33,7 +33,55 @@ get_header(); // wp function that replaces require(template)
 			<?php echo 'no posts'; ?>
 		<?php endif; ?>
 	</div>
+	<!-- pagination / page navigation -->
+	<?php
+	// how many total posts?
+	$count_posts = wp_count_posts();
+	// print_r($count_posts);
+	$published_posts = $count_posts->publish;
+	// var_dump($published_posts);
+
+	// how many posts per page in options->reading?
+	$default_posts_per_page = get_option( 'posts_per_page' );
+	// var_dump($default_posts_per_page);
+
+	?>
+	<?php if ($published_posts > $default_posts_per_page): ?>
+		<div class="row">
+			<?php
+			$args = array(
+				'type' => 'array'
+			);
+
+			$paginationLinks = paginate_links($args);
+			// echo('<pre>');
+			// var_dump($paginationLinks);
+			// echo('</pre>');
+			?>
+
+			<nav aria-label="Page navigation">
+				<ul class="pagination">
+					<?php foreach ($paginationLinks as $link): ?>
+						<li class="page-item">
+							<?php
+							echo str_replace('page-numbers', 'page-link', $link);
+							?>
+							<!-- string_replace takes three options - what we're replacing, what we want to replace it with, and where to find that thing-->
+						</li>
+						<?php
+						// var_dump($link)
+						?>
+					<?php endforeach; ?>
+				</ul>
+			</nav>
+
+			<p><?php //the_posts_pagination($args); ?></p>
+		</div>
+
+	<?php endif; ?>
 </div>
+
+
 
 
 <?php
