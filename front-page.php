@@ -22,12 +22,10 @@ get_header(); // wp function that replaces require(template)
 
 <div class="container">
 	<div class="row">
-
-
 		<?php if (have_posts()): ?>
 			<?php while (have_posts()): ?>
 				<?php the_post(); ?>
-				<div class="col-4 my-5">
+				<div class="col-12 col-md-4 mb-3">
 					<?php get_template_part( 'templates/content', get_post_format()); ?>
 				</div>
 			<?php endwhile; ?>
