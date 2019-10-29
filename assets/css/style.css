@@ -1,3 +1,23 @@
 * {
 	font-family: sans-serif
 }
+
+.header-image {
+	height: 30vh;
+	width: 100vw;
+	background-position: center;
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.fullWidthVideo iframe {
+	/* check this out:
+		<div class="fullWidthVideo">
+			<?php echo apply_filters( 'the_content', render_block( $firstVideoBlock ) ); ?>
+			<!-- we'll use a descendant selector targeting any iframes that are descendants of our fullVideo div -->
+		</div>
+	 */
+	max-width: 100%;
+}
