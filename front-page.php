@@ -79,6 +79,27 @@ get_header(); // wp function that replaces require(template)
 		</div>
 
 	<?php endif; ?>
+
+	<!-- next / previous buttons -->
+	<div class="row">
+		<div class="col d-flex justify-content-between my-2">
+			<?php
+			add_filter('next_posts_link_attributes', 'posts_link_attributes');
+			add_filter('previous_posts_link_attributes', 'posts_link_attributes');
+			// https://developer.wordpress.org/reference/functions/add_filter/ - check this out!
+			function posts_link_attributes() {
+				return 'class="btn btn-round btn-primary"';
+			}
+			?>
+			<?php if (previous_posts_link()): ?>
+				<?php echo previous_posts_link() ?>
+			<?php endif; ?>
+
+			<?php if (next_posts_link()): ?>
+				<?php echo next_posts_link() ?>
+			<?php endif; ?>
+		</div>
+	</div>
 </div>
 
 
