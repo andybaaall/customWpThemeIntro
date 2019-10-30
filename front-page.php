@@ -92,17 +92,22 @@ get_header(); // wp function that replaces require(template)
 			}
 			?>
 			<?php if (previous_posts_link()): ?>
-				<?php echo previous_posts_link() ?>
+				<?php echo previous_posts_link(); ?>
 			<?php endif; ?>
 
 			<?php if (next_posts_link()): ?>
-				<?php echo next_posts_link() ?>
+				<?php echo next_posts_link(); ?>
 			<?php endif; ?>
 		</div>
 	</div>
 </div>
 
-
+<div class="row">
+	<div id="frontPageFooter" class="colp-5 bg-light w-100 p-5">
+		<p class="d-flex justify-content-center"><?php echo get_theme_mod('1902_footerMessage', '&copy; Cool Theme, powered by Wordpress'); ?></p>
+		
+	</div>
+</div>
 
 
 <?php

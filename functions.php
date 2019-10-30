@@ -100,3 +100,5 @@ function add_custom_post_types(){
 }
 
 add_action('init', 'add_custom_post_types'); // post types must be added after init. More abt this in dev handbook.
+
+require_once get_template_directory() . '/inc/customizer.php';
