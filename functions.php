@@ -19,7 +19,7 @@ function addCustomThemeFiles(){
 add_action('wp_enqueue_scripts', 'addCustomThemeFiles');	// takes two values - a queue, and an enqueue function
 // wp_enqueue_scripts() is part of wp_head()
 
-add_theme_support('post-thumbnails');
+add_theme_support('post-thumbnails', array('post', 'movie'));
 
 add_image_size('Very Small Thumbail', 100, 100, true);
 
@@ -67,5 +67,38 @@ add_theme_support('custom-header', $customHeaderDefaults);
 // gutenberg support
 add_theme_support('wp-block-styles');
 
-// post formats support - these show up in the post editor under status & visibility. 
+// post formats support - these show up in the post editor under status & visibility.
 add_theme_support('post-formats', array('video', 'audio', 'image', 'gallery'));
+
+// adding custom post types
+function add_custom_post_types(){
+	$args = array(
+		'labels' => array(
+			'name' => 'Movies',
+			'singular_name' => 'Movie',
+			'add_new_item' => 'Add a new movie :^)',
+
+		),
+		'description' => 'A list of movies we\'ve blogged about',
+		'public' => true,
+		'hierarchical' => true,
+		'show_in_nav_menus' => false,
+		'show_in_rest' => true,	// Gutenberg uses an API, so we need this to be 'true' to access Gutenberg
+		'mene_position' => 6, // https://developer.wordpress.org/reference/functions/add_menu_page/#menu-structure
+		'menu_icon' => 'dashicons-tickets-alt', // https://developer.wordpress.org/resource/dashicons/
+		'supports' => array(	// this is an alias for add_post_type_support()
+			'title',
+			'editor',
+			'thumbnail',
+			'post-formats'
+		),
+		'delete_with_user' => false
+		// https://wordpress.stackexchange.com/questions/247328/change-custom-post-type-slug for changing the slug
+		// looks like a lot of stuff in WP happens by applying filters!
+	);
+	register_post_type('movie', $args);	// steer well clear of using plural names when you set these up
+}
+
+add_action('init', 'add_custom_post_types'); // post types must be added after init. More abt this in dev handbook.
+
+require_once get_template_directory() . '/inc/customizer.php';
