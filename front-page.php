@@ -33,19 +33,34 @@ get_header(); // wp function that replaces require(template)
 			<?php echo 'no posts'; ?>
 		<?php endif; ?>
 	</div>
-	<!-- pagination / page navigation -->
-	<?php
-	// how many total posts?
-	$count_posts = wp_count_posts();
-	// print_r($count_posts);
-	$published_posts = $count_posts->publish;
-	// var_dump($published_posts);
+</div>
 
-	// how many posts per page in options->reading?
-	$default_posts_per_page = get_option( 'posts_per_page' );
-	// var_dump($default_posts_per_page);
+<!-- mission statement thing / jumbotron -->
+<?php if (get_theme_mod('1902_frontPageJumbotronImage') != null): ?>
+	<div class="row">
+		<div class="missionStatementBackground jumbotron w-100 d-flex justify-content-center">
+			<h2 class="display-4 text-light"><?php echo get_theme_mod('1902_frontPageJumbotronText', 'This is what we do. Climb aboard.') ?></h2>
+		</div>
+	</div>
+<?php endif; ?>
 
-	?>
+
+
+
+<!-- pagination / page navigation -->
+<?php
+// how many total posts?
+$count_posts = wp_count_posts();
+// print_r($count_posts);
+$published_posts = $count_posts->publish;
+// var_dump($published_posts);
+
+// how many posts per page in options->reading?
+$default_posts_per_page = get_option( 'posts_per_page' );
+// var_dump($default_posts_per_page);
+
+?>
+<div class="container">
 	<?php if ($published_posts > $default_posts_per_page): ?>
 		<div class="row">
 			<?php
@@ -105,7 +120,7 @@ get_header(); // wp function that replaces require(template)
 <div class="row">
 	<div id="frontPageFooter" class="colp-5 bg-light w-100 p-5">
 		<p class="d-flex justify-content-center"><?php echo get_theme_mod('1902_footerMessage', '&copy; Cool Theme, powered by Wordpress'); ?></p>
-		
+
 	</div>
 </div>
 
