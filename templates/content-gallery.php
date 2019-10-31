@@ -11,7 +11,8 @@ if (has_blocks()) {
 };
 ?>
 
-<div class="card mb-2 mt-2">
+<!-- <div class="card mb-2 mt-2"> --> <!-- rows -->
+<div class="card">	<!-- grid -->
 	<div class="card-body border-danger">
 		<div class="card-title">
 			<?php the_title(); ?>

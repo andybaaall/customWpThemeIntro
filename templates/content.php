@@ -1,6 +1,8 @@
 <!-- card w/ if else conditional tree for different post formats -->
 
-<div class="card mb-2 mt-2">
+<!-- <div class="card mb-2 mt-2">  --><!-- rows -->
+<div class="card">	<!-- grid -->
+
 	<?php if (has_post_thumbnail()): ?>
 		<?php
 		set_post_thumbnail_size( 100, 100 );
