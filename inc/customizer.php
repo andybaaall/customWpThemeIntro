@@ -9,25 +9,25 @@ function mytheme_customize_register( $wp_customize ) {
     // All our sections, settings, and controls will be added here
 
     // footer message section
-    $wp_customize->add_section( '1902_footerMessage' , array(      // again, unique id, plus a text domain from style.css
+    $wp_customize->add_section( '1902_footerMessageSection' , array(      // again, unique id, plus a text domain from style.css
     'title'      => __( 'Footer Message', '1902Custom' ),
-    'priority'   => 160, /* https://developer.wordpress.org/themes/customize-api/customizer-objects/#sections */
+    'priority'   => 160 /* https://developer.wordpress.org/themes/customize-api/customizer-objects/#sections */
     ) );
     // setting
     $wp_customize->add_setting( '1902_footerMessage' , array(
         'default' => '&copy; Cool Theme, powered by Wordpress',
-        'transport' => 'refresh',
+        'transport' => 'refresh'
     ) );
     // control
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, '1902_footerMessageControl', array(
         'label'      => __( 'Footer Message', '1902Custom' ),
-        'section'    => '1902_footerMessage',
+        'section'    => '1902_footerMessageSection',
         'settings'   => '1902_footerMessage',
         'description' => 'Some helpful description'
 
         // https://codex.wordpress.org/Class_Reference%5CWP_Customize_Manager%5Cadd_control - these return the ID, so you can work on the element
         // (this page omits the class WP_Customize_Cropped_Image_Control)
-    ) ) );
+    ) ) );  // really like this business of all the closing brackets being on the same line!
 
 
     // background color setting
@@ -51,7 +51,7 @@ function mytheme_customize_register( $wp_customize ) {
     // header / footer colour setting
     $wp_customize->add_setting( '1902_headerFooterColour' , array(
         'default'   => '#c4b2bf',
-        'transport' => 'refresh',
+        'transport' => 'refresh'
     ) );
     // control
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, '1902_headerFooterColourControl', array(
@@ -62,6 +62,35 @@ function mytheme_customize_register( $wp_customize ) {
 
         // https://codex.wordpress.org/Class_Reference%5CWP_Customize_Manager%5Cadd_control - these return the ID, so you can work on the element
         // (this page omits the class WP_Customize_Cropped_Image_Control)
+    ) ) );
+
+    // h1 colour setting
+    $wp_customize->add_setting( '1902_h1Colour' , array(
+        'default'   => '#63535e',
+        'transport' => 'refresh'
+    ) );
+    // control
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, '1902_h1ColourControl', array(
+        'label'      => __( 'Site Title Colour', '1902Custom' ),
+        'section'    => 'colors',   // this section is native to WP
+        'settings'   => '1902_h1Colour',
+        'description' => 'Some helpful description'
+
+        // https://codex.wordpress.org/Class_Reference%5CWP_Customize_Manager%5Cadd_control - these return the ID, so you can work on the element
+        // (this page omits the class WP_Customize_Cropped_Image_Control)
+    ) ) );
+
+    // link hover colour setting - so far for post permalinks and nav items
+    $wp_customize->add_setting('1902_linkHoverColour', array(
+        'default' => '#edc207',
+        'transport' => 'refresh'
+    ) );
+    // control
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, '1902_h1ColourControl', array(
+        'label'      => __( 'Link Hover Colour', '1902Custom' ),
+        'section'    => 'colors',
+        'settings'   => '1902_linkHoverColour',
+        'description' => 'Some helpful description'
     ) ) );
 }
 
@@ -77,8 +106,24 @@ function mytheme_customize_css()
              }
 
              #topNavbar, #frontPageFooter {
-                 background-color: <?php echo get_theme_mod('1902_headerFooterColour', '#c4b2bf') ?> !important;
+                 background-color: <?php echo get_theme_mod('1902_headerFooterColour', '#c4b2bf'); ?> !important;
              }
+
+             h1 {
+                 color: <?php echo get_theme_mod('1902_h1Colour', '#63535e'); ?>;
+             }
+
+            #topNavbar a:hover{
+                 /* could work an if/else to target color/background color more elegantly ?*/
+                 color: <?php echo get_theme_mod('1902_linkHoverColour', '#edc207'); ?>;
+             }
+
+             .card-body a:hover {
+                 background-color: <?php echo get_theme_mod('1902_linkHoverColour', '#edc207'); ?>;
+                 color: white;
+             }
+
+
          </style>
     <?php
 }

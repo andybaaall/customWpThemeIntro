@@ -46,7 +46,7 @@ if (has_blocks()){
 
 ?>
 
-<div class="card">
+<div class="card h-100">
 	<div class="card-body border-warning">
 		<div class="card-title">
 			<?php the_title(); ?>

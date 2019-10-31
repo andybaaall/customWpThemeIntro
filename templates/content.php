@@ -1,6 +1,6 @@
 <!-- card w/ if else conditional tree for different post formats -->
 
-<div class="card">
+<div class="card h-100">
 	<?php if (has_post_thumbnail()): ?>
 		<?php
 		set_post_thumbnail_size( 100, 100 );

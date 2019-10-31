@@ -11,11 +11,11 @@ if (has_blocks()) {
 };
 ?>
 
-<div class="card">
+<div class="card h-100">
 	<div class="card-body border-danger">
 		<div class="card-title">
 			<?php the_title(); ?>
 		</div>
+		<a href="<?php the_permalink(); ?>" class="btn btn-round btn-danger">view gallery</a>
 	</div>
-	<a href="<?php the_permalink(); ?>" class="btn btn-round btn-danger">view gallery</a>
 </div>
