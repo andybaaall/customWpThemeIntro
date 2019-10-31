@@ -11,7 +11,7 @@ if (has_blocks()) {
 };
 ?>
 
-<div class="card h-100">
+<div class="card mb-2 mt-2">
 	<div class="card-body border-danger">
 		<div class="card-title">
 			<?php the_title(); ?>

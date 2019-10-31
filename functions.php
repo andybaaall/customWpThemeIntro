@@ -33,9 +33,9 @@ function addCustomMenu1902(){
 	// ... (Text Domain: 1902Custom). Because people might install a new menu called 'primary', and our ...
 	// ... menu will persist in their database persist in their database, we might want to give it a unique identifier
 
-	register_nav_menu('top_navigation', __('Hello, world! This is the navbar that will go on the top of the page', '1902Custom'));
-	register_nav_menu('sidebar_navigation', __('Hello, world! This is the navbar that will go on the left of the page', '1902Custom'));
-	register_nav_menu('bottom_navigation', __('Hello, world! This is the navbar that will go on the bottom of the page', '1902Custom'));
+	register_nav_menu('top_navigation', __('This is the navbar that will go on the top of the page', '1902Custom'));
+	register_nav_menu('sidebar_navigation', __('This is the navbar that will go on the left of the page', '1902Custom'));
+	register_nav_menu('bottom_navigation', __('This is the navbar that will go on the bottom of the page', '1902Custom'));
 	// having done this, we can put wp_nav_menu into our front-end pages.
 }
 

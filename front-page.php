@@ -22,13 +22,23 @@ get_header(); // wp function that replaces require(template)
 
 <div class="container">
 	<div class="row">
-		<?php if (have_posts()): ?>
-			<?php while (have_posts()): ?>
-				<?php the_post(); ?>
-				<div class="col-12 col-md-4 mb-3">
-					<?php get_template_part( 'templates/content', get_post_format()); ?>
-				</div>
-			<?php endwhile; ?>
+		<!-- sidebar nav -->
+		<?php if(has_nav_menu('sidebar_navigation')): ?>
+			<div class="card h-100 mb-2 mt-2 p-2">
+				<?php wp_nav_menu( array('theme_location' => 'side_navigation')); ?>
+			</div>
+		<?php endif; ?>
+
+		<!-- if there are posts -->
+		<div class="col">
+			<?php if (have_posts()): ?>
+				<?php while (have_posts()): ?>
+					<?php the_post(); ?>
+						<?php get_template_part( 'templates/content', get_post_format()); ?>
+				<?php endwhile; ?>
+		</div>
+
+
 		<?php else: ?>
 			<?php echo 'no posts'; ?>
 		<?php endif; ?>

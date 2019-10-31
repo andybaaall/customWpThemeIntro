@@ -155,7 +155,7 @@ function mytheme_customize_css()
 
     .missionStatementBackground {
         background: url("<?php echo get_theme_mod('1902_frontPageJumbotronImage')?>") no-repeat center;
-        background-size: cover;
+        background-size: cover; /* turns out using classes makes this a lot easier, ty OOCSS */
     }
     </style>
     <?php
