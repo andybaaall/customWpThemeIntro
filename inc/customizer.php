@@ -124,43 +124,41 @@ function mytheme_customize_register( $wp_customize ) {
         ) ) );
 } // function mytheme_customize_register( $wp_customize )
 
-        add_action( 'customize_register', 'mytheme_customize_register' );
+add_action( 'customize_register', 'mytheme_customize_register' );
 
-        function mytheme_customize_css()
-        {
-            ?>
-            <style type="text/css">
-            body {
-                background-color: <?php echo get_theme_mod('1902_backgroundColour', '#e2e2e2'); ?> ;
-                /* this second setting is the control default value, not the theme modification default value - but still, they should be the same */
-            }
+function mytheme_customize_css()
+{
+    ?>
+    <style type="text/css">
+    body {
+        background-color: <?php echo get_theme_mod('1902_backgroundColour', '#e2e2e2'); ?> ;
+        /* this second setting is the control default value, not the theme modification default value - but still, they should be the same */
+    }
 
-            #topNavbar, #frontPageFooter {
-                background-color: <?php echo get_theme_mod('1902_headerFooterColour', '#c4b2bf'); ?> !important;
-            }
+    #topNavbar, #frontPageFooter {
+        background-color: <?php echo get_theme_mod('1902_headerFooterColour', '#c4b2bf'); ?> !important;
+    }
 
-            h1 {
-                color: <?php echo get_theme_mod('1902_h1Colour', '#63535e'); ?>;
-            }
+    h1 {
+        color: <?php echo get_theme_mod('1902_h1Colour', '#63535e'); ?>;
+    }
 
-            #topNavbar a:hover{
-                /* could work an if/else to target color/background color more elegantly ?*/
-                color: <?php echo get_theme_mod('1902_linkHoverColour', '#edc207'); ?>;
-            }
+    #topNavbar a:hover{
+        /* could work an if/else to target color/background color more elegantly ?*/
+        color: <?php echo get_theme_mod('1902_linkHoverColour', '#edc207'); ?>;
+    }
 
-            .card-body a:hover {
-                background-color: <?php echo get_theme_mod('1902_linkHoverColour', '#edc207'); ?>;
-                color: white;
-            }
+    .card-body a:hover {
+        background-color: <?php echo get_theme_mod('1902_linkHoverColour', '#edc207'); ?>;
+        color: white;
+    }
 
-            .missionStatementBackground {
-                background: url("<?php echo get_theme_mod('1902_frontPageJumbotronImage')?>") no-repeat center;
-                background-size: cover;
-            }
+    .missionStatementBackground {
+        background: url("<?php echo get_theme_mod('1902_frontPageJumbotronImage')?>") no-repeat center;
+        background-size: cover;
+    }
+    </style>
+    <?php
+}
 
-
-            </style>
-            <?php
-        }
-
-        add_action( 'wp_head', 'mytheme_customize_css');
+add_action( 'wp_head', 'mytheme_customize_css');
