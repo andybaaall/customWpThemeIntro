@@ -47,6 +47,8 @@ get_header(); // wp function that replaces require(template)
 	</div>
 </div>
 
+<div class="my-3"/>
+
 <!-- mission statement thing / jumbotron -->
 <?php if (get_theme_mod('1902_frontPageJumbotronImage') != null): ?>
 	<div class="row">
@@ -56,6 +58,34 @@ get_header(); // wp function that replaces require(template)
 	</div>
 <?php endif; ?>
 
+<div class="my-3"/>
+
+<!-- carousel -->
+<?php
+	$slide1 = get_theme_mod('1902_frontPageCarouselImage1');
+	$slide2 = get_theme_mod('1902_frontPageCarouselImage2');
+	$slide3 = get_theme_mod('1902_frontPageCarouselImage3');
+
+	for ($i=0; $i <= 3; $i++) {
+		if (get_theme_mod('1902_frontPageCarouselImage1' . $i)) {
+			$firstSlide = '1902_frontPageCarouselImage1' . $i;
+			break;
+			// this will only trigger once because of the break 
+		}
+	}
+	echo('<pre>');
+	var_dump($slide1);
+	echo('</pre>');
+	echo('<pre>');
+	var_dump($slide2);
+	echo('</pre>');
+	echo('<pre>');
+	var_dump($slide3);
+	echo('</pre>');
+	echo('<pre>');
+	var_dump($firstSlide);
+	echo('</pre>');
+ ?>
 
 
 

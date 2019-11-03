@@ -110,18 +110,60 @@ function mytheme_customize_register( $wp_customize ) {
         ) );
         // control - image
         $wp_customize->add_control(
-            new WP_Customize_Image_Control($wp_customize, 'logo', array(
+            new WP_Customize_Image_Control($wp_customize, '1902_frontPageJumbotronImageControl', array(
                 'label'      => __( 'Background Image for your Mission Statement', '1902Custom' ),
                 'section'    => '1902_frontPageJumbotronSection',
                 'settings'   => '1902_frontPageJumbotronImage',
             ) ) );
         // control - text
-        $wp_customize->add_control( new WP_Customize_Control( $wp_customize, '1902_footerMessageControl', array(
+        $wp_customize->add_control( new WP_Customize_Control( $wp_customize, '1902_frontPageJumbotronTextControl', array(
             'label'      => __( 'Mission Statement', '1902Custom' ),
             'section'    => '1902_frontPageJumbotronSection',
             'settings'   => '1902_frontPageJumbotronText',
             'description' => '100 characters or so on what this website\'s about'
         ) ) );
+
+    //front page carousel section
+    $wp_customize->add_section( '1902_frontPageCarouselSection' , array(
+        'title'      => __( 'Carousel', '1902Custom' ),
+        'description' => 'Add up to three images to your carousel. :^)',
+        'priority'   => 162
+    ) );
+        // settings
+        $wp_customize->add_setting('1902_frontPageCarouselImage1', array(
+            'default' => '',
+            'transport' => 'refresh'
+        ) );
+
+        $wp_customize->add_setting('1902_frontPageCarouselImage2', array(
+            'default' => '',
+            'transport' => 'refresh'
+        ) );
+
+        $wp_customize->add_setting('1902_frontPageCarouselImage3', array(
+            'default' => '',
+            'transport' => 'refresh'
+        ) );
+        // controls
+        $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, '1902_frontPageCarouselImagesControl1', array(
+            'label'      => __( 'Carousel Image One', '1902Custom' ),
+            'section'    => '1902_frontPageCarouselSection',
+            'settings'   => '1902_frontPageCarouselImage1'
+        ) ) );
+
+        $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, '1902_frontPageCarouselImagesControl2', array(
+            'label'      => __( 'Carousel Image Two', '1902Custom' ),
+            'section'    => '1902_frontPageCarouselSection',
+            'settings'   => '1902_frontPageCarouselImage2'
+        ) ) );
+
+        $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, '1902_frontPageCarouselImagesControl3', array(
+            'label'      => __( 'Carousel Image Three', '1902Custom' ),
+            'section'    => '1902_frontPageCarouselSection',
+            'settings'   => '1902_frontPageCarouselImage3'
+        ) ) );
+
+
 } // function mytheme_customize_register( $wp_customize )
 
 add_action( 'customize_register', 'mytheme_customize_register' );
