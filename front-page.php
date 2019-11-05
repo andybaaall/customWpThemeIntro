@@ -21,7 +21,11 @@ get_header(); // wp function that replaces require(template)
 <?php endif; ?>
 
 <div class="container">
-	<div class="row">
+
+	<?php
+
+	 ?>
+	<div class="row sideBarPosition">
 		<!-- sidebar nav -->
 		<div class="col-2 h-100">
 			<?php if(has_nav_menu('sidebar_navigation')): ?>
@@ -70,7 +74,7 @@ get_header(); // wp function that replaces require(template)
 		if (get_theme_mod('1902_frontPageCarouselImage1' . $i)) {
 			$firstSlide = '1902_frontPageCarouselImage1' . $i;
 			break;
-			// this will only trigger once because of the break 
+			// this will only trigger once because of the break
 		}
 	}
 	echo('<pre>');

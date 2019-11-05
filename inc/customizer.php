@@ -163,6 +163,31 @@ function mytheme_customize_register( $wp_customize ) {
             'settings'   => '1902_frontPageCarouselImage3'
         ) ) );
 
+    // menu location - left or right
+    $wp_customize->add_section( '1902_sidebarPositionSection' , array(
+        'title'     => __( 'Sidebar Position', '1902Custom' ),
+        'panel'     => 'nav_menus'
+    ) );
+
+        // setting
+        $wp_customize->add_setting('1902_sidebarPosition', array(
+            'default' => 'left',
+            'transport' => 'refresh'
+        ) );
+
+        //control
+        $wp_customize->add_control( new WP_Customize_Control( $wp_customize, '1902_sidebarPositionControl', array(
+            'label'          => __( 'Controls the position of the sidebar navigation.', '1902Custom' ),
+            'section'        => '1902_sidebarPositionSection',
+            'settings'       => '1902_sidebarPosition',
+            'description'    => 'You can have the sidebar (if active) show up on the left or the right of the page.',
+            'type'          => 'radio',
+            'choices'       => array(
+                'left' => __( 'Left' ),
+                'right' => __( 'Right' ),
+            ),
+            'priority'      => 1
+        ) ) );
 
 } // function mytheme_customize_register( $wp_customize )
 
@@ -199,6 +224,13 @@ function mytheme_customize_css()
         background: url("<?php echo get_theme_mod('1902_frontPageJumbotronImage')?>") no-repeat center;
         background-size: cover; /* turns out using classes makes this a lot easier, ty OOCSS */
     }
+
+    <?php if (get_theme_mod('1902_sidebarPosition') === 'right'): ?>
+        .sideBarPosition {
+            flex-direction: row-reverse !important;
+        }
+    <?php endif; ?>
+
     </style>
     <?php
 }
