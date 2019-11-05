@@ -189,6 +189,44 @@ function mytheme_customize_register( $wp_customize ) {
             'priority'      => 1
         ) ) );
 
+    // posts as rows or card grid thing
+    // okay so I tried to put this in the Home Page Settings panel, with something like the following.
+    // i think it probably needs to be in the wp-includes/ folder?
+            // public function register_controls(){
+            //    $this->add_control(
+            //    'show_on_front',
+            //    array(
+            //        'label'   => __( 'Posts are displayed as' ),
+            //        'section' => 'static_front_page',
+            //        'type'    => 'radio',
+            //        'choices' => array(
+            //            'grid' => __( 'A three-column grid' ),
+            //            'rows'  => __( 'Full-width rows' )
+            //    ) ) );
+            // }
+    $wp_customize->add_section( '1902_postsLayoutSection' , array(
+        'title'     => __( 'Posts Layout', '1902Custom' ),
+        'priority'  => 121
+    ) );
+        // settings
+        $wp_customize->add_setting('1902_postsLayout', array(
+            'default' => 'rows',
+            'transport' => 'refresh'
+        ) );
+
+        // control
+        $wp_customize->add_control( new WP_Customize_Control( $wp_customize, '1902_postsLayoutControl', array(
+            'label'          => __( 'Controls the layout of the posts displayed on the front page', '1902Custom' ),
+            'section'        => '1902_postsLayoutSection',
+            'settings'       => '1902_postsLayout',
+            'description'    => 'Posts can either be displayed as full-width rows (default), or in a three-column grid.',
+            'type'          => 'radio',
+            'choices'       => array(
+                'rows' => __( 'Rows' ),
+                'grid' => __( 'Grid' ),
+            ),
+            'priority'      => 1
+        ) ) );
 } // function mytheme_customize_register( $wp_customize )
 
 add_action( 'customize_register', 'mytheme_customize_register' );
