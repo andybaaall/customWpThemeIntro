@@ -30,7 +30,7 @@ get_header(); // wp function that replaces require(template)
 		<div class="col-2 h-100">
 			<?php if(has_nav_menu('sidebar_navigation')): ?>
 				<div class="card h-100 mb-2 mt-2 p-2">
-					<?php wp_nav_menu( array('theme_location' => 'side_navigation')); ?>
+					<?php wp_nav_menu( array('theme_location' => 'sidebar_navigation')); ?>
 				</div>
 			<?php endif; ?>
 		</div>
