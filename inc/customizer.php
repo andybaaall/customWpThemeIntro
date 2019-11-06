@@ -227,6 +227,54 @@ function mytheme_customize_register( $wp_customize ) {
             ),
             'priority'      => 1
         ) ) );
+
+    // featured post / product thing
+    $wp_customize->add_section('1902_featuredPostSection', array(
+        'title'     => __('Featured Post', '1902Custom'),
+        'priority'  => 122
+    ) );
+
+        // setting - checkbox
+        $wp_customize->add_setting('1902_featuredPostSectionCheckbox', array(
+            'default'   => '',
+            'transport' => 'refresh'
+        ) );
+
+        // setting - dropdown
+        $wp_customize->add_setting('1902_featuredPostSectionDropdown', array(
+            'default'   => '',
+            'transport' => 'refresh'
+        ) );
+
+        // control - checkbox
+        $wp_customize->add_control( new WP_Customize_Control( $wp_customize, '1902_featuredPostSectionCheckboxControl', array(
+            'label'          => __('Show a featured post?', '1902Custom'),
+            'section'        => '1902_featuredPostSection',
+            'settings'       => '1902_featuredPostSectionCheckbox',
+            'description'    => 'If selected, this will display a specific post\'s title, excerpt and permalink on your home page',
+            'type'           => 'checkbox',
+            'priority'       => 1
+        ) ) );
+
+        // control - dropdown
+        $allPosts = get_posts(array(
+            'numberposts' => -1
+        ) );
+        // var_dump($allPosts);
+        $allChoices = array();
+        foreach ($allPosts as $post) {
+            $allChoices[$post->ID] = $post->post_title;
+        }
+        // var_dump($allChoices);
+
+        $wp_customize->add_control( new WP_Customize_Control( $wp_customize, '1902_featuredPostSectionCheckboxDropdownControl', array(
+            'label'          => __('Featured Post', '1902Custom'),
+            'section'        => '1902_featuredPostSection',
+            'settings'       => '1902_featuredPostSectionDropdown',
+            'type'           => 'select',
+            'choices'        => $allChoices,
+            'priority'       => 2
+        ) ) );
 } // function mytheme_customize_register( $wp_customize )
 
 add_action( 'customize_register', 'mytheme_customize_register' );

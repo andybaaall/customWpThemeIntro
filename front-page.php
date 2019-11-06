@@ -68,6 +68,26 @@ get_header(); // wp function that replaces require(template)
 
 <div class="my-3"/>
 
+<!-- featured post section -->
+<div class="row">
+	<div class="col">
+		<?php if (get_theme_mod('1902_featuredPostSectionCheckbox') === true): ?>
+			<!-- developer.wordpress.org/reference/functions/get_post/ -->
+			<?php $post = get_post(get_theme_mod('1902_featuredPostSectionDropdown')); ?>
+			<div class="card">
+			  <div class="card-body">
+				<h2 class="card-title">featured post!</h2>
+			    <h5 class="card-title"><?php echo $post->post_title; ?></h5>
+			    <p class="card-text"><?php echo $post->post_content; ?></p>
+					<!-- trim me! post_excerpt seems to only want a user-generated excerpt? -->
+			    <a href="#" class="card-link">Card link</a>
+			  </div>
+			</div>
+
+		<?php endif; ?>
+	</div>
+</div>
+
 <!-- carousel -->
 <?php
 	$slide1 = get_theme_mod('1902_frontPageCarouselImage1');
