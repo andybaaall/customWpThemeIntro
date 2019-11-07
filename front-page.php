@@ -88,31 +88,63 @@ get_header(); // wp function that replaces require(template)
 </div>
 
 <!-- carousel -->
+<!-- okay so there's got to be a tidier way of writing this, but it works, and that's the main thing. -->
 <?php
 	$slide1 = get_theme_mod('1902_frontPageCarouselImage1');
 	$slide2 = get_theme_mod('1902_frontPageCarouselImage2');
 	$slide3 = get_theme_mod('1902_frontPageCarouselImage3');
 
 	for ($i=0; $i <= 3; $i++) {
-		if (get_theme_mod('1902_frontPageCarouselImage1' . $i)) {
-			$firstSlide = '1902_frontPageCarouselImage1' . $i;
+		if (get_theme_mod('1902_frontPageCarouselImage' . $i)) {
+			$firstSlide = '1902_frontPageCarouselImage' . $i;
 			break;
 			// this will only trigger once because of the break
+			// $i is useful because we've numbered our settings consecutively.
 		}
 	}
-	echo('<pre>');
-	var_dump($slide1);
-	echo('</pre>');
-	echo('<pre>');
-	var_dump($slide2);
-	echo('</pre>');
-	echo('<pre>');
-	var_dump($slide3);
-	echo('</pre>');
-	echo('<pre>');
-	var_dump($firstSlide);
-	echo('</pre>');
+
+	$numberOfSlides = 0;
+
+	for ($i=0; $i < 3 ; $i++) {
+		if (get_theme_mod('1902_frontPageCarouselImage' . $i)) {
+			$numberOfSlides ++ ;
+		}
+	}
  ?>
+
+ <?php if ($slide1 != null || $slide2 != null | $slide3 != null): ?>
+	 <div id="frontPageCarousel" class="carousel slide" data-ride="carousel">
+	 	<div class="carousel-inner">
+	 		<?php if ($slide1 != null): ?>
+	 			<div class="carousel-item <?php if($slide1 === get_theme_mod($firstSlide)){echo 'active';} ?>">
+	 				<img class="d-block w-100" src="<?php echo $slide1 ?>" alt="First slide">
+	 			</div>
+	 		<?php endif; ?>
+	 		<?php if ($slide2 != null): ?>
+	 		   <div class="carousel-item <?php if($slide2 === get_theme_mod($firstSlide)){echo 'active';} ?>">
+	 			   <img class="d-block w-100" src="<?php echo $slide2 ?>" alt="Second slide">
+	 		   </div>
+	 	   <?php endif; ?>
+	 	   <?php if ($slide3 != null): ?>
+	 		  <div class="carousel-item <?php if($slide3 === get_theme_mod($firstSlide)){echo 'active';} ?>">
+	 			  <img class="d-block w-100" src="<?php echo $slide3 ?>" alt="Third slide">
+	 		  </div>
+	 	  <?php endif; ?>
+	 	</div>
+		<?php if ($numberOfSlides > 1): ?>
+			<a class="carousel-control-prev" href="#frontPageCarousel" role="button" data-slide="prev">
+		 		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		 		<span class="sr-only">Previous</span>
+		 	</a>
+		 	<a class="carousel-control-next" href="#frontPageCarousel" role="button" data-slide="next">
+		 		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		 		<span class="sr-only">Next</span>
+		 	</a>
+		<?php endif; ?>
+	 </div>
+ <?php endif; ?>
+
+
 
 
 
