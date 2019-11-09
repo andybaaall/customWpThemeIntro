@@ -1,4 +1,6 @@
-<div class="card">
+<!-- <div class="card h-100">   -->  <!-- rows -->
+<div class="card">	<!-- grid -->
+
 	<div class="card-body border-info">
 		<div class="card-title">
 			<?php the_title(); ?>
