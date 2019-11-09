@@ -14,6 +14,7 @@ add_action('add_meta_boxes', 'add_custom_meta_boxes');
 
 
 function moviesInfoCallback($post){
+    // the callback function renders the html in the post editor
     require_once get_template_directory() . '/inc/moviesInfoForm.php';
     // get the form that we just wrote
 }
@@ -24,7 +25,8 @@ function save_moviesInfo_meta_boxes($post_id){
         // stop what you're doing if you're doing a wordpress autosave!
     }
     $fields = [
-        '1902_year'
+        '1902_year',
+        '1902_genre'
     ];
     foreach($fields as $field){
         if(array_key_exists($field, $_POST)){

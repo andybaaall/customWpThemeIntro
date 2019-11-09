@@ -39,11 +39,10 @@ get_header();
 	 ?>
 
 	<div class="row">
-		<div class="col-4">
 			<?php if ($allMovies->have_posts()): ?>
 	   	 	<?php while ($allMovies-> have_posts()): $allMovies->the_post(); ?>
-	   			<div class="col">
-	   				<div class="card">
+				<div class="col-4 h-100">
+					<div class="card">
 	   					<div class="card-body">
 	   						<div class="card-title h3"> <?php echo the_title(); ?> </div>
 	   						<div class="card-text"> <?php echo the_content(); ?> </div>
@@ -51,16 +50,21 @@ get_header();
 								<span class="badge badge-primary">
 									<?php echo get_post_meta( get_the_id(), '1902_year', true);?>
 									<!-- we give get_post_meta() the page ID and the meta key
-										 and it retrieves the value --> 
+										 and it retrieves the value -->
 								</span>
+								<span class="badge badge-primary">
+									<?php echo get_post_meta( get_the_id(), '1902_genre', true);?>
+									<!-- we give get_post_meta() the page ID and the meta key
+										 and it retrieves the value -->
+								</span>
+
 							</div>
 	   						<a href="<?php echo the_permalink() ?>" class="btn btn-primary">More Info</a>
 	   					</div>
 	   				</div>
-	   			</div>
+				</div>
 	   		<?php endwhile; ?>
 	   	 <?php endif; ?>
-		</div>
 	</div>
 </div>
 
